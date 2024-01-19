@@ -10,26 +10,53 @@
 ## 1. 제일 비싼날 구하고, 이전꺼 다 판다.
 ## 2. 해당 값들을 리스트에서 없애고 제일 비싼거 구해서 이전꺼 판다
 ## 3. 반복해서 없으면 stop
-
-T = int(input()) # 테스트케이스의 개수
-for i in range(1, T+1):
-    benefit = 0
-    buyLst = []
-    N = int(input()) # 몇일치 가격이 주어지는지
-    days = list(map(int,input().split())) # 몇일을 예상할 수 있는지? == 몇일치 가격이 주어지는지
-    while True:
-        benefitLst = []
-        if len(days) < 1:
-            break
-        sell_day = max(days)
-        maximum = days.index(sell_day) # 가장 최대값의 인덱스를 반환
-        for idx, data in enumerate(days[:maximum]):
-            benefitLst.append(sell_day - data)
-            days.remove(data)
-        for consume in benefitLst:
-            benefit += consume
-        days.remove(sell_day)
-    print(f'#{i} {benefit}')
+## ==> 시간이 너무 오래 걸림 (10개 중 7개 통과)
+## While을 통한 접근이 아니라면?
+## for 구문으로 N을 순차적으로 접근해 지울 필요가 없어진다면 작업 줄어들듯
+## 거기에 필요한 논리
+## 1. 총 N 회차의 반복이 필요
+## 2. 거꾸로 간다면? 만약 앞에 값이 더 비싸면 뒤에값은 생각할 필요가 없어진다
+## ex) 10 9 8 7 6 5 4 3 2 1 -> 1보다 2가 비싸니까 pass, 계속 pass => 0
+## ex) 10 10 11 12 11 10 -> 10보다 11이 비싸니까 pass, 12 pass, 12보다 11이 싸네? 그럼 max = 12 그 담(이전) 값이 싸면 팔고, 비싸면 맥스 재설정
 
 
 
+# 1번 시간초과 케이스
+
+# T = int(input()) # 테스트케이스의 개수
+# for i in range(1, T+1):
+#     benefit = 0
+#     buyLst = []
+#     N = int(input()) # 몇일치 가격이 주어지는지
+#     days = list(map(int,input().split())) # 몇일을 예상할 수 있는지? == 몇일치 가격이 주어지는지
+#     while True:
+#         benefitLst = []
+#         if len(days) < 1:
+#             break
+#         sell_day = max(days)
+#         maximum = days.index(sell_day) # 가장 최대값의 인덱스를 반환
+#         for idx, data in enumerate(days[:maximum]):
+#             benefitLst.append(sell_day - data)
+#             days.remove(data)
+#         for consume in benefitLst:
+#             benefit += consume
+#         days.remove(sell_day)
+#     print(f'#{i} {benefit}')
+
+# 2번 케이스
+
+T = int(input())
+for i in range(1,T+1):
+    maxi, bene, Tmpi = 0, 0, 0
+    N = int(input())
+    days = list(map(int,input().split()))
+    for m in range(N-1,-1,-1):
+        if days[m] >= maxi:
+            maxi    = days[m]
+            bene   += Tmpi
+            Tmpi    = 0
+        else:
+            Tmpi   += maxi - days[m]
+            bene   += Tmpi
+    print(bene)
+            

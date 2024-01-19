@@ -1,0 +1,26 @@
+import json
+from pprint import pprint
+
+def max_polularity(artists):
+    idLst = []
+    artist_result = []
+    rankLst = []
+    for artist in artists:
+        idLst.append(artist['id'])
+    for id in idLst:
+        artists_json = open(f"data/artists/{id}.json", encoding="utf-8")
+        artists_detail = json.load(artists_json)  
+        artist_result.append(artists_detail)
+    for rank in artist_result:
+        rankLst.append(rank['popularity'])
+    for artists in artist_result:
+        if artists['popularity'] == max(rankLst):
+            result = artists['name']
+            return result
+
+# 아래의 코드는 수정하지 않습니다.
+if __name__ == "__main__":
+    artists_json = open("data/artists.json", encoding="utf-8")
+    artists_list = json.load(artists_json)
+
+    pprint(max_polularity(artists_list))
