@@ -20,7 +20,6 @@
 ## ex) 10 10 11 12 11 10 -> 10보다 11이 비싸니까 pass, 12 pass, 12보다 11이 싸네? 그럼 max = 12 그 담(이전) 값이 싸면 팔고, 비싸면 맥스 재설정
 
 
-
 # 1번 시간초과 케이스
 
 # T = int(input()) # 테스트케이스의 개수
@@ -58,5 +57,6 @@ for i in range(1,T+1):
         else:
             Tmpi   += maxi - days[m]
             bene   += Tmpi
-    print(bene)
+            Tmpi = 0
+    print(f'#{i} {bene}')
             
