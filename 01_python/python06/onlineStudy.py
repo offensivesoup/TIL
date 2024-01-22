@@ -174,3 +174,7 @@ deep_copied_list[2][0] = 100
 
 print(original_list)
 print(deep_copied_list)
+
+my_list = [range(5), range(1,5)]
+result  = map(lambda x, y : x + y, *my_list)
+print(sum(result))
