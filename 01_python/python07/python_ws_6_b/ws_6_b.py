@@ -23,8 +23,9 @@ print(data.get('without', 'unknown'))
 
 # 4. plus_data가 가진 모든 키와 벨류를 data에 추가한다.
 
-data.update(plus_data)
-
+# data.update(plus_data)
+for key in plus_data:
+    data[key] = plus_data[key]
 # 5. 변경된 data를 출력한다.
 
 print(data)
