@@ -11,15 +11,18 @@ T = int(input())
 for i in range(1,T+1):
     area = [] # 사용자의 입력 영역
     paris = [] # 잡은 파리수 더해줄 영역
-    result = []
     N, M = map(int,input().split())
     # 사용자의 입력 영역 만들기
     for user_input in range(N):
         area.append(list(map(int,input().split())))
     for i in range(N):
-        num = 0
+        move = 0
         selected_area = area[i:i+M]
-        for row in selected_area:
+        if len(selected_area) >= 2:
+            for row in selected_area:
+                pass
+                  
+
             
 
         # for j in range(N):
