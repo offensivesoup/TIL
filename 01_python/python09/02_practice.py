@@ -4,10 +4,9 @@ class Point():
         self.x = x
         self.y = y
 
-class Rectangle(Point):
+class Rectangle():
 
     def __init__(self, x, y):
-        super().__init__(x, y)
         self.p1 = x.x - y.x
         self.p2 = y.y - x.y
 

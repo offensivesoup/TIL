@@ -16,11 +16,18 @@ for i in range(1,T+1):
     for user_input in range(N):
         area.append(list(map(int,input().split())))
     for i in range(N):
-        move = 0
         selected_area = area[i:i+M]
-        if len(selected_area) >= 2:
+        if len(selected_area) == M:
+            start_idx = 0
+            total = 0
             for row in selected_area:
-                pass
+                sumi = 0
+                start_idx = 0
+                for num in row[start_idx:start_idx+M]:
+                    print(num)
+                    start_idx += 1
+                paris.append(sumi)
+    print(paris)
                   
 
             

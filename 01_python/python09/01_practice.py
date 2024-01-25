@@ -19,9 +19,9 @@ import sys
 # txt 파일의 각 줄의 내용을
 # input 함수가 실행될때마다 넣어준다.
 
-sys.stdin = open('input.txt') # stdin에 담긴다.
+# sys.stdin = open('input.txt') # stdin에 담긴다.
 
-N = int(input())
+# N = int(input())
 # N번 만큼 입력이 주어진다 했으니, N번만큼 반복해서 input
 # result = []
 # for i in range(N):
@@ -44,8 +44,8 @@ N = int(input())
 #     arr = list(map(int, input().split()))
 #     result.append(arr)
 
-result = [list(map(int, input().split())) for _ in range(N)]
-print(result)
+# result = [list(map(int, input().split())) for _ in range(N)]
+# print(result)
 
 
 
@@ -58,4 +58,45 @@ print(result)
 # print(arr1)
 # print(arr2)
 # print(arr3)
+
+# 거꾸로 출력
+
+# sys.stdin = open('input.txt')
+
+# N = int(input())
+
+# for i in range(N,-1,-1):
+#     print(i)
+
+# n줄 덧셈
+    
+# sys.stdin = open('input.txt')
+# N = int(input())
+
+# ## 입력으로 자연수 number가 주어질 때, 1부터 주어진 자연수 number까지를 모두 더한 값을 출력하시오.
+
+# result = 0
+# for i in range(1,N+1):
+#     result += i
+# print(result)
+
+## solution.py
+
+# sys.stdin = open('input.txt')
+# N = int(input())
+
+# for i in range(1,N+1):
+#     print(' '*(N-i),'*'*i,sep = '')
+
+## 2차원 리스트 전체합 구하기
+
+sys.stdin = open('input.txt')
+N = int(input())
+arr = [list(map(int, input().split())) for _ in range(N)]
+
+result = 0
+for Lst in arr:
+    for j in Lst:
+        result += j
+print(result)
 
