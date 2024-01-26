@@ -15,19 +15,20 @@ for i in range(1,T+1):
     # 사용자의 입력 영역 만들기
     for user_input in range(N):
         area.append(list(map(int,input().split())))
-    for i in range(N):
-        selected_area = area[i:i+M]
+    for j in range(N):
+        start_num = 0
+        selected_area = area[j:j+M]
         if len(selected_area) == M:
-            start_idx = 0
-            total = 0
-            for row in selected_area:
-                sumi = 0
-                start_idx = 0
-                for num in row[start_idx:start_idx+M]:
-                    print(num)
-                    start_idx += 1
-                paris.append(sumi)
-    print(paris)
+            for _ in range(N-1):
+                total = 0
+                for row in selected_area:
+                    pari_area = row[start_num:start_num+M]
+                    for answer in pari_area:
+                        total += answer
+                start_num += 1
+                paris.append(total)
+
+    print(f'#{i} {max(paris)}')
                   
 
             
