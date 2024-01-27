@@ -4,6 +4,8 @@
 # 그럼 두가지로 상황을 나누어서 조건을 주면 되지 않을까
 # 1. enumerate 로 나누어, 각 인덱스를 키값으로, 값을 벨류로 갖는 딕셔너리를 만든다.
 
+
+
 T = int(input())
 cleaning = []
 result   = {}
@@ -14,4 +16,3 @@ for user in user_input:
 
 for idx, num in enumerate(cleaning):
     result[idx] = num
-print(result)
