@@ -18,17 +18,33 @@ sys.stdin = open('input.txt')
 #         boxes[boxes.index(min(boxes))] += 1
 #     print(f'#{test_case} {max(boxes)-min(boxes)}')
 
+for tc in range(1,11):
+    dump = int(input())
+    boxes = list(map(int,input().split()))
 
-import sys
-sys.stdin = open("input.txt", "r")
+    h_cnt = [0] * 101
+    min_v = 101
+    max_v = 0
 
-for test_case in range(1, 11):
-    dunp_count = int(input()) # 덤프 가능 횟수
-    box_height = list(map(int, input().split())) # 박스들의 높이 리스트
+    for i in range(100):
+        h_cnt[boxes[i]] += 1
 
-    counts = [0] * 101                    # 박스 높이별로 개수를 구할 리스트
+        if boxes[i] > max_v:
+            max_v = boxes[i]
+        if boxes[i] < min_v:
+            min_v = boxes[i]
 
-    for i in box_height:
-        counts[i] += 1                    # 박스의 높이별로 개수 증가
+    while dump > 0 and max_v - min_v > 1:
+        h_cnt[min_v] -= 1
+        h_cnt[max_v] -= 1
+        h_cnt[min_v+1] += 1
+        h_cnt[max_v-1] += 1
 
-print(counts)
+        if h_cnt[min_v] == 0:
+            min_v += 1
+        if h_cnt[max_v] == 0:
+            max_v -= 1
+        dump -= 1
+    result = max_v - min_v
+    print(result)
+
