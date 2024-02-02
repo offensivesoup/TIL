@@ -48,7 +48,7 @@ for test_case in range(1,T+1):
 
 def binary_search(start, end, target, cnt):
     T = int(input())
-    for tc in range(1,end) // 2
+    for tc in range(1,end) // 2:
         middle = int((start + end) / 2)
         if middle == target:
         # 언제까지? 중간지점이 내가 찾는 대상이면
@@ -56,4 +56,3 @@ def binary_search(start, end, target, cnt):
         else:
             if middle > target:
                 binary_search(start, middle, target, cnt+1)
-        else:
