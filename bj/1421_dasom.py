@@ -23,11 +23,16 @@ for i in range(1,max(woods)+1): # 젤 큰 나무까지 순회하면서 자연수
     for wood in woods: # 나무 하나씩 꺼내서 잘라봄
         cutting_wood = [i] * (wood // i)  # 잘라진 나무 더미
         cart.append(cutting_wood) # 카트로 담아봄
-    for baguni in cart:
-        if len(baguni) > 0: # 일단 최소 한덩이는 나왓음
-            cutting = len(baguni) - 1 # 이렇게 만들려고 몇번 잘랐니
-            mymoney = sum(baguni) * W - (cutting * C) # 그럼 이 바구니 가격 나옴
-            total += mymoney
+    for j in range(len(cart)):
+        if len(cart[j]) > 0: # 일단 최소 한덩이는 나왓음
+            if woods[j] % i == 0:
+                cutting = len(cart[j]) - 1 # 이렇게 만들려고 몇번 잘랐니
+                mymoney = sum(cart[j]) * W - (cutting * C) # 그럼 이 바구니 가격 나옴
+                total += mymoney
+            elif woods[j] % i != 0:
+                cutting = len(cart[j])
+                mymoney = sum(cart[j]) * W - (cutting * C) # 그럼 이 바구니 가격 나옴
+                total += mymoney
     profit.append(total)
 
 print(max(profit))
