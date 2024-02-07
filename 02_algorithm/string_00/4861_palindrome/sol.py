@@ -11,6 +11,7 @@ for test_case in range(1,T+1):
         for v in range(N):
             var.append(word[w][v])
         area.append(var)
+    print(area)
     for i in range(N):
         for j in range(N):
             hword = ''.join(area[j][i:i+M])
