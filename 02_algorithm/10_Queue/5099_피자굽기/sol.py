@@ -1,31 +1,44 @@
-import sys
-sys.stdin = open('input.txt')
-
-from collections import deque
-
-# 피자가 빙글빙글 돈다
-def rotation(f_pizza , w_pizza): # 피자(큐)와 오븐의 크기를 받는다
-    while len(f_pizza) != 1:  # 오븐에 피자가 한판 남을때 까지
-        c = f_pizza.popleft() # 입구쪽 피자 꺼내봄
-        c[0] //= 2 # 그 치즈 반 녹아있음
-        if c[0] != 0: # 그 피자의 치즈가 다 안녹음
-            f_pizza.append(c) # 맨뒤로 놓음
-        else: # 다 녹앗음
-            if len(w_pizza) >= 1: # 남아있는 피자가 있으면
-                next_pizza = w_pizza.popleft()  # 기다리는 피자중 젤 첫번째꺼 꺼내서
-                f_pizza.appendleft(next_pizza)  # 첫피자로 넣어줌
-            else: # 기다리는 피자는 없음
-                continue # 그냥 오븐에서 계속 돌려봄
-    return f_pizza[0][1] # 남은 피자번호 출력
-
+# 테스트케이스 입력
 T = int(input())
-for test_case in range(1,T+1):
-    N, M = map(int,input().split())
-    user_input = list(map(int,input().split()))
-    numLst = []
-    for i in range(0,M):
-        numLst.append([user_input[i],i+1])
-    first  = deque(numLst[:N]) # 첫 오븐에 들어가는 피자
-    wating = deque(numLst[N:]) # 기다리는 피자
-    result_pizza = rotation(first, wating) # 피자 돌리기
-    print(f'#{test_case} {result_pizza}') # 그 피자 번호 출력
+for t in range(1, T + 1):
+    N, M = map(int, input().split())       # 화덕의 크기 N, 피자 개수 M
+    Ci = list(map(int, input().split()))   # 피자 치즈의 양 Ci
+
+    # firepit : 화덕 내 피자 정보
+    # 초기값은 피자 M 개중 N 개로 설정
+    firepit = [[0, 0] for _ in range(N)]
+    for i in range(N):
+        firepit[i][0] = i + 1
+        firepit[i][1] = Ci[i]
+
+    # Cheese : 화덕에 들어가지 못하고 대기중인 피자 정보
+    # 초기값은 firepit 초기 설정하고 남은 피자 (M - N)개로 설정
+    Cheese = [[0,0] for _ in range(M - N)]
+    for i in range(N, M):
+        Cheese[i - N][0] = i + 1
+        Cheese[i - N][1] = Ci[i]
+
+    # 화덕에 피자가 1개 남을때까지 반복
+    while len(firepit) > 1:
+
+        # 1번위치(index 0)의 피자 치즈 확인
+        # 기존의 양 //2
+        firepit[0][1] //= 2
+
+        # 확인했는데 치즈의 양이 0이면 화덕에서 꺼내고
+        # 대기 중인 피자가 있다면 빈 자리에 투입
+        if firepit[0][1] == 0:
+            firepit.pop(0)
+            if Cheese != []:
+                firepit.insert(0, Cheese[0])
+                Cheese.pop(0)
+                turn = firepit.pop(0)
+                firepit.append(turn)
+            else:
+                pass
+        else:
+            # 다음 피자 확인을 위해 화덕 회전
+            turn = firepit.pop(0)
+            firepit.append(turn)
+
+    print(f'#{t} {firepit[0][0]}')
