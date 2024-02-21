@@ -29,9 +29,9 @@ for _ in range(M):
         if switchs[num-1]: # 일단 자기꺼 켜져있으면
             switchs[num-1] = 0 # 끔
         else: # 꺼져있으면
-            switchs[num+1] = 1 # 켠다
-        while check:  # 그리고 순회돌려봐야함
-            if num-1-cnt >=0 and num-1+cnt<N:
+            switchs[num-1] = 1 # 켠다
+        while True:  # 그리고 순회돌려봐야함
+            if num-1-cnt >= 0 and num-1+cnt < N:
                 if switchs[num-1+cnt] == switchs[num-1-cnt]: # 자기가 뽑은 앞에거 뒤에거가 같음
                     if switchs[num-1+cnt]: # 양쪽 거가 켜져있음
                         switchs[num - 1 + cnt] , switchs[num-1-cnt] = 0, 0 # 둘다 끌거임
