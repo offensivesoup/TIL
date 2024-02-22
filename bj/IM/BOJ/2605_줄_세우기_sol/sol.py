@@ -12,11 +12,11 @@ from collections import deque
 #     result.insert(number[i],i+1)
 # result.reverse()
 # print(*result)
-
+#
 # N = int(input()) # 학생수
 # number = list(map(int,input().split())) # 뽑는 번호표
 # result = deque([1])
-
+#
 # for i in range(1,N+1):
 #     if i < N:
 #         cnt = 1
@@ -27,5 +27,5 @@ from collections import deque
 #                 cnt += 1
 #                 if number[i-cnt] <= number[i]:
 #                     result.insert(number[i-cnt-1],i)
-#                     break            
+#                     break
 # print(result)
