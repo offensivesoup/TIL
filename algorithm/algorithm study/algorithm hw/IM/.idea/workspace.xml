@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c20f2e1d-0514-4a71-8ce9-fcabfe070f65" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../exam/Algo1_부울경_1반_김동환.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../exam/Algo2_부울경_1반_김동환.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../exam/Algo3_부울경_1반_김동환.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../exam/algo1_sample_in.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../exam/algo1_sample_out.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../exam/algo2_sample_in.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../exam/algo2_sample_out.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../exam/부울경_1반_김동환.zip" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="2ctdNln8iOpaJNsXL5GbNbsf8DH" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c20f2e1d-0514-4a71-8ce9-fcabfe070f65" name="Default Changelist" comment="" />
+      <created>1708934771788</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1708934771788</updated>
+    </task>
+    <servers />
+  </component>
+</project>
