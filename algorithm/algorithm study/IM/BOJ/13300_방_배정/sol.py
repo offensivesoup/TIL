@@ -1,21 +1,14 @@
 import sys
 sys.stdin = open('input.txt')
 
+'''
+남남, 여여끼리 방배정을 해야한다. , 같은 학년끼리 방배정
+한방의 최대 인원 수 K가 주어졌을 때, 모든 학생을 배정하기 위한 최소개수
+'''
 
-N, K = map(int, input().split())
+N, K = map(int,input().split()) # 학생수, 방마다 최대 인원수
+room = [[] for _ in range(N)] # 방마다 한명을 배정한다고 생각했을 때의 방 개수
+information = [tuple(map(int,input().split())) for _ in range(N)]
+information.sort(key = lambda x : (x[0], x[1]))
 
-# 각 학년별, 여학생, 남학생이 한 방에 사용가능한 인원 수
-arr = [[K, K] for _ in range(7)]
-cnt = 0
-
-for i in range(N):
-    # 성별, 학년
-    S, Y = map(int, input().split())
-    # 해당 학년의 특정 성별이 더 이상 방에 못들어가면
-    if arr[Y][S] == 0:
-        arr[Y][S] = K   # 새 방 공급
-    if arr[Y][S] == K:  # 새 방에 인원을 넣을거라면
-        cnt += 1        # 방 하나 더 추가
-    arr[Y][S] -= 1      # 해당 방에 넣을 수 있는 사람 수 감소
-print(cnt)
 
