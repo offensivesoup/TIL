@@ -57,7 +57,6 @@ while True:
         branch = input('브랜치 명이 무엇입니까? ex) main, origin ... : ')
         hwLst = my_complete.split()
         completeurlLst = []
-        gitUrl = []
         commitM = []
         for hw in hwLst:
             lv = hw[-1]

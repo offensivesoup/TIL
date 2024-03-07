@@ -2,5 +2,15 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/04_WEB/02-CSS_Layout/web_hw_2_2" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/04_WEB/02-CSS_Layout/web_hw_2_4" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/04_WEB/02-CSS_Layout/web_ws_2_1" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/04_WEB/02-CSS_Layout/web_ws_2_2" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/04_WEB/02-CSS_Layout/web_ws_2_3" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/04_WEB/02-CSS_Layout/web_ws_2_4" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/04_WEB/02-CSS_Layout/web_ws_2_5" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/04_WEB/02-CSS_Layout/web_ws_2_a" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/04_WEB/02-CSS_Layout/web_ws_2_b" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/04_WEB/02-CSS_Layout/web_ws_2_c" vcs="Git" />
   </component>
 </project>

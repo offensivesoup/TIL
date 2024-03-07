@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Position</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 1500px;
+    }
+
+    .container {
+      position: relative;
+      height: 300px;
+      width: 300px;
+      border: 1px solid black;
+    }
+
+    .box {
+      height: 100px;
+      width: 100px;
+      border: 1px solid black;
+    }
+
+    .static {
+      position: static;
+      background-color: lightcoral;
+    }
+
+    .absolute {
+      /* 집을 나가는 친구 */
+      /* 본인이 가지고 있던 -> 모든 가로 영역을 다 버려버린다. */
+      /* 아래 요소들이 한줄 쏙 올라간다. */
+      /* 얘는 다 버렸으니까, 새로운 기준점을 찾아야 한다. */
+      /* static이 아닌 부모를 찾아간다. */
+      /* 얘의 시작점은 container의 좌측 상단으로 옮겨진다. */
+      position: absolute;
+      background-color: lightgreen;
+      top: 100px;
+      left: 100px;
+    }
+
+    .relative {
+      /* 과거 영역의 위치에 따라 움직인다. 상대적으로 */
+      /* 본인의 스태틱 위치에 따라 움직이는 것 */
+      /* 과거의 위치를 버린 것이 아니다. */
+      position: relative;
+      background-color: lightblue;
+      top: 100px;
+      left: 100px;
+    }
+
+    .fixed {
+      /* 얘는 고정이야 어딘가에 박혀버린다. */
+      /* absolute와 마찬가지로 집을 나간다. */
+      /* 스크롤을 내려도 고정된다. => 화면을 기준으로 고정된다. */
+      position: fixed;
+      background-color: gray;
+      top: 0;
+      right: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="box static">Static</div>
+    <div class="box absolute">Absolute</div>
+    <div class="box relative">Relative</div>
+    <div class="box fixed">Fixed</div>
+  </div>
+</body>
+
+</html>
