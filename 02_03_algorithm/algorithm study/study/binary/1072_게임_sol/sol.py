@@ -16,18 +16,17 @@ now  = Y*100//X
 # 즉, 10게임을해도 10번을 이기는 거니까 mid 값은 분자나 분모에 공통 적용된다는 점이다.
 end = X # 이분 탐색의 끝 값
 start = 0 # 이분 탐색의 시작 값
-result = 0
-last_end = 0
-if now >= 99:
+result = 0 # 결과를 담을 값
+if now >= 99: # 이러면 아무리해도 더 안좋아짐
     print(-1)
-else:
-    while start<=end:
+else: # 그게 아니라면
+    while start<=end: # 이진탐색
         mid = (end+start)//2 # 중간값
         if (Y+mid)*100//(X+mid) > now: # 했는데 승률이 달라 => 게임을 조금 덜 해보자
-            result = mid
-            end = mid - 1
+            result = mid # 결과에 그걸 담을거임
+            end = mid - 1 # 게임을 덜 해볼래
         else: # 했는데 승률이 같네? # 게임을 더 해보자
-            start = mid + 1
+            start = mid + 1 # 게임을 조금 더 해보자
 
     print(result)
 
