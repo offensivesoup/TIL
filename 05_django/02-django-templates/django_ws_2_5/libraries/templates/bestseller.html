@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<main>
+  <h1 class="main-view">베스트 셀러 목록</h1>
+  {% for item in result %}
+  {% if %}{% endif %}
+  <div>
+    <p><strong>제목 : {{ item.title }}</strong></p>
+    <p class="fw-light">저자 : {{ item.author }}</p>
+    <hr>
+  </div>
+  {% endfor %}
+</main>
+{% endblock content %}

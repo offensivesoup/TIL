@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>베스트셀러 목록</h1>
+  {% for book in result %}
+    {% if book.title %} <p>제목: {{book.title}}</p>{% endif %}
+    {% if book.author %} <p>저자: {{book.author}}</p>{% endif %}
+    {% if book.salesPoint %} <p>설명: {{book.bestDuration}}</p>{% endif %}
+    <hr>
+  {% endfor %}
+</body>
+</html>
