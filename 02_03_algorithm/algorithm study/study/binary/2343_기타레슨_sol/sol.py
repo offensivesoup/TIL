@@ -33,17 +33,15 @@ while start <= end:
     sumi = 0
     cnt  = 1
     for cd in bluerays:
-        if sumi >= mid: # 강의 길이를 다 채웠네
+        if sumi + cd > mid: # 강의 길이를 다 채웠네
             cnt += 1 # 그럼 찍엇다고 표시해주고
             sumi = 0 # 블루레이의 길이를 최소화
         sumi += cd
-    if cnt == M: # 그렇게 만들어진 블루레이 개수가 동일해
+    if cnt <= M: # 그렇게 만들어진 블루레이 개수가 같네?
         # 그럼 후보군으로 들어갈 수 있다
         # 강의 길이를 더 줄여볼수도 있다
         result = mid
         end = mid - 1
-    elif cnt > M: # 더 크게 찍어보아야해
+    else: # 더 크게 찍어보아야해
         start = mid + 1
-    else: # 더 작게 찍어볼 수 있다
-        end = mid - 1
 print(result)

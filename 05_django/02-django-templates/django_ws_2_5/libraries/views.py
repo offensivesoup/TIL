@@ -2,7 +2,7 @@ import requests
 from django.shortcuts import render
 
 API_URL = 'https://www.aladin.co.kr/ttb/api/ItemList.aspx'
-API_KEY = 'ttbjssy06141212001'
+API_KEY = ''
 
 # Create your views here.
 def index(request):
