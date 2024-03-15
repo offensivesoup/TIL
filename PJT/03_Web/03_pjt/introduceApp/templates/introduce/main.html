@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% load static %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'introduce/css/style.css' %}">
+{% endblock style %}
+{% block content %}
+<header>
+  <div class="user-wrap">
+    <div class="user-img">
+<img src="{% static 'introduce/images/bgi.jpg'%}" alt=""
+    </div>
+    <div class="user-txt">
+    <h1 class="title"> DONG HWAN PORTFOLIO</h1>
+    </div>
+</div>
+</header>
+<main>
+  <article id = 'my-info' class="fade-wrap">
+    <div style = "text-align:center;">
+      <h2 class="semi-title">자기 소개</h2>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-3">
+          <div class="left-content">
+            <img src="{% static 'introduce/images/profile1.jpg'%}" alt="" class='content-img'>
+          </div>
+        </div>
+        <div class="col right-content">
+          <div>
+            <ul>
+              <p class="right-content-title">끊임없이 자기 발전과 학습을 위해 노력하고 있습니다</p>
+              <li class="content"> 평소 몰입하는 환경 조성에 신경쓰며, 끊임없이 탐구하는 것을 즐기는 성격입니다 </li>
+              <li class="content"> 행정학을 전공하여, 국가사업과 니즈에 대한 전반적인 시각을 가지고 있습니다 </li>
+              <li class="content"> octopus부터 시작하여, python을 이용한 데이터 수집에 대한 경험이 있습니다 </li>
+              <li class="content"> 현재는 웹 개발과 관련하여 삼성청년소프트웨어아카데미(SSAFY)의 과정에 몰두하는 중입니다 </li>
+            </ul>
+          </div>
+        </div>
+    </div>
+  </article>
+  <hr>
+  <article id = 'experience' class="fade-wrap">
+    <div style = "text-align:center;">
+      <h2 class="semi-title">경험 & 경력</h2>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-3">
+          <div class="left-content">
+            <img src="{% static 'introduce/images/profile2.jpg'%}" alt="" class='content-img' style="width:1500px">
+          </div>
+        </div>
+        <div class="col right-content">
+          <div>
+              <p class="right-content-title">다양한 경험을 위해 힘써왔습니다</p>
+              <p class="right-content-semi-title">다양한 곳에서 장학생으로 근무하며, 만남의 가치를 느꼈습니다</p>
+              <ul>
+              <li class="content">부산철도공사, 근로복지공단, 북부산세무서 등 다양한 경험이 존재합니다</li>
+            </ul>
+              <p class="right-content-semi-title">경험을 열정, 몰입과 결과까지 이끌어내는 능력을 가지고 있습니다</p>
+                <ul>
+                <li class="content">학부 연구생부터, DSBA 과정, SSAFY까지 삶을 이끌어내고 있습니다</li>
+              </ul>
+              <p class="right-content-semi-title">프로젝트를 성공적으로 이끌어낸 경험이 있습니다</p>
+              <ul>
+                <li class="content">첫 프로젝트에 조장으로 참여하여, 단합과 열정을 결과로 만들어낸 바 있습니다</li>
+              </ul>
+                </div>
+              </div>
+          </div>
+        </div>
+    </div>
+  </article>
+  <hr>
+  <article id = 'skills' class = "fade-wrap">
+    <div style = "text-align:center;">
+      <h2 class="semi-title">기술 스택</h2>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-6">
+          <div class="left-content">
+            <img src="{% static 'introduce/images/skill1.png'%}" alt="" class="content-img">
+          </div>
+        </div>
+        <div class="col right-content">
+          <img src="{% static 'introduce/images/skill2.png'%}" alt="" class='content-img'>
+        </div>
+    </div>
+  </article>
+  <hr>
+  <article id="project" class = "fade-wrap">
+    <div style = "text-align:center;">
+      <h2 class="semi-title">프로젝트</h2>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-3">
+          <div class="left-content">
+            <img src="{% static 'introduce/images/project1.png'%}" alt="" class="content-img">
+          </div>
+        </div>
+        <div class="col right-content">
+          <ul>
+            <li class="content">상권 분석을 통한 점포 매물의 추천 프로젝트</li>
+            <li class="content">코사인 유사도 모델과 회귀분석을 통한 논리성 확보</li>
+            <li class="content">데이터 수집 위해 Beautifulsoup과 공공 데이터api의 활용</li>
+            <button type="button" class="btn right-content-title" onclick = "location.href = 'https://github.com/offensivesoup/Sangchu_Final_PJT'">
+              자세히 보러 가기</button>
+          </ul>
+        </div>
+    </div>
+  </article>
+</main>
+{% endblock content %}
