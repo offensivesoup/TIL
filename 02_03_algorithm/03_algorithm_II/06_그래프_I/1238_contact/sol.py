@@ -24,3 +24,7 @@ for test_case in range(1,11):
     bfs(start)
     maxi = max(visited)
     result = []
+    for i in range(101):
+        if visited[i] == maxi:
+            result.append(i)
+    print(max(result))
