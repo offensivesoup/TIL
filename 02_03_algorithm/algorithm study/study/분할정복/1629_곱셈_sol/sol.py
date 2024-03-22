@@ -14,6 +14,16 @@ sys.stdin = open('input.txt')
 == ((10 ** 5) % 12 * (10 ** 5) % 12 * 10 % 12) % 12   
 '''
 
+def solved(a, num):
+    if num == 1:
+        return a % C
+    else:
+        tem = solved(a,num//2)
+        if num % 2 == 0:
+            return (tem * tem) % C
+        else:
+            return (tem * tem * a) % C
+
 A, B, C = map(int,input().split())
 start = 1
-result = []
+print(solved(A,B))
