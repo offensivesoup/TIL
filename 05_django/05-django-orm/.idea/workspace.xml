@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7335d62c-5de2-4cc3-8b70-59157790e500" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../02_03_algorithm/algorithm study/study/우선순위큐_그래프/HW/그래프/5639_이진_검색_트리_sol/sol.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../02_03_algorithm/03_algorithm_II/ad.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../02_03_algorithm/03_algorithm_II/ad.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../02_03_algorithm/algorithm study/study/우선순위큐_그래프/HW/그래프/1991_트리순회/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../02_03_algorithm/algorithm study/study/우선순위큐_그래프/HW/그래프/1991_트리순회/input.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../02_03_algorithm/algorithm study/study/우선순위큐_그래프/HW/그래프/5639_이진_검색_트리/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../02_03_algorithm/algorithm study/study/우선순위큐_그래프/HW/그래프/5639_이진_검색_트리_sol/input.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../02_03_algorithm/algorithm study/study/우선순위큐_그래프/HW/그래프/5639_이진_검색_트리/sol.py" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="2eAMYHngtWO5pAxzd2NJ7tvZHQz" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Confirmation" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7335d62c-5de2-4cc3-8b70-59157790e500" name="Default Changelist" comment="" />
+      <created>1711342976232</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1711342976232</updated>
+    </task>
+    <servers />
+  </component>
+</project>
