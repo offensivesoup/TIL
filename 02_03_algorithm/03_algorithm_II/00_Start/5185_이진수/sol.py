@@ -7,4 +7,5 @@ for test_case in range(1,T+1):
     N, N16 = input().split()
     for char in N16:
         print(format(int(char, 16), '04b'), end = '')
+        print(char)
     print()
