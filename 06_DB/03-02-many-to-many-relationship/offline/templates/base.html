@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <nav>
+    <!-- 각 페이지로 이동가능한 링크 모음 -->
+    <a href="{% url "articles:index" %}">[BACK]</a>
+    {% if request.user.is_authenticated %}
+      <form action="{% url "accounts:logout" %}" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="LOGOUT">
+      </form>
+    {% else %}
+      <a href="{% url "accounts:login" %}">[LOGIN]</a>
+      <a href="{% url "accounts:signup" %}">[SIGNUP]</a>
+    {% endif %}
+  </nav>
+  <!-- 
+    각 app들의 template들이 본인의 
+    본문을 작성할 영역 content 지정.
+  -->
+  {% block content %}
+
+  {% endblock content %}
+
+</body>
+</html>

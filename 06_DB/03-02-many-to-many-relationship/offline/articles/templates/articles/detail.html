@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>{{article.title}}</h1>
+
+<h2>{{article.user}}</h2>
+
+<p> 내용 : {{article.content}}</p>
+
+{% if request.user == article.user %}
+    <form action="{% url "articles:delete" article.pk %}" method = "POST">
+        {% csrf_token %}
+        <input type="submit" value = "delete">
+    </form>
+    <form action="{% url "articles:update" article.pk %}">
+        {% csrf_token %}
+        <input type="submit" value = "update">
+    </form>
+{% endif %}
+
+<form action="{% url "article:comment_create" article.pk request.user.pk %}" method = "POST">
+    {{comment_form.as_p}}
+    <input type="submit" value = "댓글 작성">
+</form>
+
+{% endblock content %}
