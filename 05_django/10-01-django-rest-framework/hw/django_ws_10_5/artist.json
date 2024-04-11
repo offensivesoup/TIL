@@ -1,0 +1,42 @@
+[
+{
+    "model": "artists.artist",
+    "pk": 1,
+    "fields": {
+        "name": "a",
+        "agency": "aaa",
+        "debut_date": "1999-10-19",
+        "is_group": true
+    }
+},
+{
+    "model": "artists.artist",
+    "pk": 2,
+    "fields": {
+        "name": "b",
+        "agency": "bbb",
+        "debut_date": "1999-10-19",
+        "is_group": true
+    }
+},
+{
+    "model": "artists.artist",
+    "pk": 3,
+    "fields": {
+        "name": "c",
+        "agency": "ccc",
+        "debut_date": "1999-10-19",
+        "is_group": true
+    }
+},
+{
+    "model": "artists.artist",
+    "pk": 4,
+    "fields": {
+        "name": "d",
+        "agency": "ddd",
+        "debut_date": "1999-10-19",
+        "is_group": true
+    }
+}
+]
