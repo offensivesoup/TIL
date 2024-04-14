@@ -17,7 +17,6 @@ def bfs(que):
                 if not visited[row][col]:
                     visited[row][col] = 1
                     que.append((row,col))
-    return 1
 
 N = int(input())
 area = []
@@ -29,19 +28,19 @@ for i in range(N):
     area.append(line)
 
 result = 0
-for rain in range(1, maxi):
+for rain in range(0, maxi):
     high = 0
     visited = [[0] * N for _ in range(N)]
     for i in range(N):
         for j in range(N):
             if area[i][j] <= rain:
-                visited[i][j] = 1
+                visited[i][j] = rain
     for m in range(N):
         for n in range(N):
-            if not visited[i][j]:
+            if not visited[m][n]:
                 start = deque([(m,n)])
-                if bfs(start):
-                    high += 1
+                bfs(start)
+                high += 1
     if high > result:
         result = high
 
