@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+  <h1 class="mb-4">{{ author.username }}님의 프로필 페이지</h1>
+  <form action="{% url 'accounts:follow' author.pk %}" method="POST">
+    {% csrf_token %}
+    {% if request.user in author.followers.all %}
+      <input type="submit" value='언팔로우'>
+    {% else %}
+      <input type="submit" value='팔로우'>
+    {% endif %}
+  </form>
+  <p>회원번호: {{ author.pk }}</p>
+  <p>유저이름: {{ author.username }}</p>
+  <p>가입날짜: {{ author.date_joined }}</p>
+</div>
+<hr>
+<div>
+  <h2>유저가 쓴 글</h2>
+  {% if author.board_set.all %}
+    {% for board in author.board_set.all %}
+      <p>글번호: {{ board.pk }}</p>
+      <p>글제목: {{ board.title }}</p>
+    {% endfor %}
+  {% else %}
+    <p>아직 작성한 글 없습니다</p>
+  {% endif %}
+</div>
+<hr>
+<div>
+  <h2>유저가 쓴 댓글</h2>
+  {% if author.comment_set.all %}
+    {% for comment in author.comment_set.all %}
+      <p>댓글: {{comment.content}}</p>
+    {% endfor %}
+  {% else %}
+    <p>아직 작성한 댓글 없습니다</p>
+  {% endif %}
+</div>
+<hr>
+<div>
+  <h2>팔로워</h2>
+  {% if author.followers.all %}
+    {% for follower in author.followers.all %}
+      <p>팔로워: {{follower}}</p>
+    {% endfor %}
+  {% else %}
+    <p>아직 팔로워 없습니다</p>
+  {% endif %}
+</div>
+{% endblock content %}
