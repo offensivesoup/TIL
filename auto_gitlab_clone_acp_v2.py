@@ -35,9 +35,13 @@ while True:
             if test == 2 or test == 4:
                 url = f'https://lab.ssafy.com/{user_id}/{subject}_hw_{today}_{test}'
                 urlLst.append(url)
+                url = f'https://lab.ssafy.com/{user_id}/{subject}_ex_{today}_{test}'
+                urlLst.append(url)
                 url = f'https://lab.ssafy.com/{user_id}/{subject}_ws_{today}_{test}'
                 urlLst.append(url)
             else:
+                url = f'https://lab.ssafy.com/{user_id}/{subject}_ex_{today}_{test}'
+                urlLst.append(url)
                 url = f'https://lab.ssafy.com/{user_id}/{subject}_ws_{today}_{test}'
                 urlLst.append(url)
         # 받아올 url 리스트를 만들어 주었다
@@ -46,7 +50,8 @@ while True:
                 git.Git(user_dir).clone(url)
                 print(f'{url} 의 과제를 {user_dir}로 받아왔습니다')
             except Exception:
-                print('실패했슴니다..')
+                pass
+        print('안받아 와진 파일이 있다면, 실습실 생성을 완료하였는지 확인해주세요')
         break
     elif select == 2:
         print('어떤 과제를 수행했는지 입력해주세요 (하나씩 띄어서 입력) ex)과제2 과제4 실습1 실습a 실습b')
@@ -60,10 +65,15 @@ while True:
             lv = hw[-1]
             if hw[:2] == '과제':
                 test = 'hw'
+                completeurlLst.append(f'{user_dir}\{subject}_{test}_{today}_{lv}\.git')
+                commitM.append(f'{today}일차_{test}_{lv}단계 제출')
             else:
+                test = 'ex'
+                completeurlLst.append(f'{user_dir}\{subject}_{test}_{today}_{lv}\.git')
+                commitM.append(f'{today}일차_{test}_{lv}단계 제출')
                 test = 'ws'
-            completeurlLst.append(f'{user_dir}\{subject}_{test}_{today}_{lv}\.git')
-            commitM.append(f'{today}일차_{test}_{lv}단계 제출')
+                completeurlLst.append(f'{user_dir}\{subject}_{test}_{today}_{lv}\.git')
+                commitM.append(f'{today}일차_{test}_{lv}단계 제출')
             # 내가 완료한 작업들의 폴더 url이 만들어 졌다
         for idx in range(len(completeurlLst)): # 폴더를 순회한다.
             try:
@@ -74,7 +84,8 @@ while True:
                 origin.push()
                 print(f'"{commitM[idx]}" 을 push 햇슴니다 ^^')
             except Exception:
-                print('실패햇슴니다...')
+                pass
+        print('제출되지 않은 파일이 있는지 확인하고 제출하시오')
         break
     else:
         print('clone은 1, (add commit push)는 2를 입력해주세요')
