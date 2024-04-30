@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <p :style="styleObj">Let's change the font style!</p>
+    <hr>
+    <p>색상 목록</p>
+    <ul>
+      <li>red</li>
+      <li>blue</li>
+    </ul>
+
+    <p>글꼴 목록</p>
+    <ul>
+      <li>fantasy</li>
+      <li>cursive</li>
+      <li>Impact</li>
+    </ul>
+    <hr>
+
+    <form @submit.prevent="changeStyle">
+      <label for="color">색 입력 : </label>
+      <input type="text" id="color" v-model="color">
+      <br>
+      <label for="font">글꼴 입력 : </label>
+      <input type="text" id="font" v-model="fontType">
+      <br>
+      <button type="submit">변경!</button>
+    </form>
+  </div>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp, ref } = Vue
+    const app = createApp({
+      setup() {
+        const color = ref('')
+        const fontType = ref('')
+        const styleObj = ref({
+          color: '',
+          'font-family': '',
+        })
+
+        const changeStyle = function () {
+          styleObj.value = {
+            color: color.value,
+            'font-family': fontType.value
+          }
+          color.value = ''
+          fontType.value = ''
+        }
+
+        return {
+          color,
+          fontType,
+          styleObj,
+          changeStyle
+        }
+      }
+    })
+    app.mount('#app')
+  </script>
+</body>
+</html>

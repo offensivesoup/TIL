@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .is-selected {
+      background-color: #eee;
+    }
+
+    .is-required {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h1>다양한 전시 정보</h1>
+    <hr>
+    <ul>
+      <li :class="{ 'is-selected' : info.select }"id="영어 제목">
+        <label for="selected">전시 선택</label>
+        <input type="checkbox" name="selected" id="selected" v-model="info.select">
+        <h3>한글 제목</h3>
+        <p>전시 정보 설명</p>
+        <hr>
+        <p>전시 위치</p>
+        <a href="전시장 링크">전시장 바로가기</a>
+        <hr>
+        <p>입장권 구매하기</p>
+        <div>
+          <span :class="{ 'is-required': info.countPeople <= 0 }">인원 수 : {{ info.countPeople }} 명 </span>
+          <button :disabled="info.minusDisable" @click="minus">-</button>
+          <button :disabled="info.plusDisable" @click="plus">+</button>
+        </div>
+        <p>총 입장료 : {{ info.totalTicket }} 원</p>
+        <hr>
+      </li>
+    </ul>
+  </div>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+   const { createApp, ref } = Vue
+   const app = createApp({
+    setup() {
+      const info = ref({
+        koTitle : '모네 인사이드',
+        enTitle : 'monet-inside',
+        artMuseum : '예술의 전당',
+        museumURL : 'https://www.sac.or.kr/',
+        description : '모네 인사이드는 빛의 화가 클로드 모네가 남긴 소중한 명작들을 현대적 감각으로 재해석해 음악과 함께 감상하는 미디어아트 전시입니다.',
+        countPeople : 0,
+        totalTicket : 0,
+        select : false,
+        plusDisable : false,
+        minusDisable : false
+      })
+
+      const minus = function () {
+        if (info.value.countPeople > 0) {
+          info.value.countPeople -= 1
+          info.value.totalTicket = info.value.countPeople * 1000
+          info.value.minusDisable = false
+        } else {
+          info.value.minusDisable = true
+        }
+        if (info.value.countPeople === 0) {
+          info.value.minusDisable = true
+        }
+        if (info.value.countPeople <= 10) {
+          info.value.plusDisable = false
+        }
+      }
+      const plus = function () {
+        if (info.value.countPeople < 10) {
+          info.value.countPeople += 1
+          info.value.totalTicket = info.value.countPeople * 1000
+          info.value.plusDisable = false
+        } else {
+          info.value.plusDisable = true
+        }
+        if (info.value.countPeople === 10) {
+          info.value.plusDisable = true
+        }
+        if (info.value.countPeople >= 0) {
+          info.value.minusDisable = false
+        }
+      }
+      return {
+        info,
+        minus, plus
+      }
+    }
+   })
+   app.mount('#app')
+  </script>
+</body>
+</html>

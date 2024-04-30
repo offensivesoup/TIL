@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .is-selected {
+      background-color: #eee;
+    }
+
+    .is-required {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h1>다양한 전시 정보</h1>
+    <hr>
+    <ul>
+      <li :class="{ 'is-selected' : select }"id="영어 제목">
+        <label for="selected">전시 선택</label>
+        <input type="checkbox" name="selected" id="selected" v-model="select">
+        <h3>한글 제목</h3>
+        <p>전시 정보 설명</p>
+        <hr>
+        <p>전시 위치</p>
+        <a href="전시장 링크">전시장 바로가기</a>
+        <hr>
+        <p>입장권 구매하기</p>
+        <div>
+          <span :class="{ 'is-required': countPeople <= 0 }">인원 수 : {{ countPeople }} 명 </span>
+          <button @click="minus">-</button>
+          <button @click="plus">+</button>
+        </div>
+        <p>총 입장료 : {{ totalTicket }} 원</p>
+        <hr>
+      </li>
+    </ul>
+  </div>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+   const { createApp, ref } = Vue
+   const app = createApp({
+    setup() {
+      const countPeople = ref(0)
+      const totalTicket = ref(0)
+      const select = ref(false)
+      const minus = function () {
+        if (countPeople.value > 0) {
+          countPeople.value -= 1
+          totalTicket.value = countPeople.value * 1000
+        }
+      }
+      const plus = function () {
+        countPeople.value += 1
+        totalTicket.value = countPeople.value * 1000
+      }
+      return {
+        countPeople, totalTicket, select,
+        minus, plus
+      }
+    }
+   })
+   app.mount('#app')
+  </script>
+</body>
+</html>
