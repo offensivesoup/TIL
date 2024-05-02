@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    li {
+      padding: 10px;
+      border: 1px solid #ccc;
+      margin: 10px 0;
+      background-color: #f5f5f5;
+    }
+    .cheap {
+      background-color: #e1f7e1;
+    }
+    .expensive {
+      background-color: #f7e1e1;
+    }
+    .selected {
+      background-color: #ffc;
+    }
+    .expired {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <h1>다양한 전시 정보</h1>
+  <label for="isActive">전시 중인 정보만 보기</label>
+  <input type="checkbox" id="isActive" v-model="isActive">
+  <ul>
+    <li v-for="exhibition in filteredExhibitions" :key="exhibition.id"
+        :class="{ 'cheap': exhibition.price <= 5000, 'expensive': exhibition.price >= 20000, 'selected': exhibition.isSelected }">
+        <span v-if="exhibition.display === '전시 중'">전시 관람 하기<input type="checkbox" v-model="exhibition.isSelected"></span>
+        <p v-else class="expired">전시가 종료되어 관람할 수 없습니다.</p>
+      <label>
+        <h3>{{ exhibition.title }}</h3>
+        <p>{{ exhibition.museum }}</p>
+        <p>가격 : {{ exhibition.price }}</p>
+        <p>{{ exhibition.price === 0 ? '무료 전시입니다' : '' }}</p>
+      </label>
+      <hr>
+    </li>
+  </ul>
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<script>
+  const {createApp, ref, computed} = Vue
+  const app = createApp({
+    setup() {
+      const exhibitions = [
+        {
+          id: 1,
+          title: '무라카미 다카시 : 무라카시좀비',
+          museum: '부산 시립 미술관',
+          price: 1000,
+          display: '전시 중',
+          isSelected: false
+        },
+        {
+          id: 2,
+          title: '마우라치오 카텔란 개인전',
+          museum: '리움 미술관',
+          price: 30000,
+          display: '전시 중',
+          isSelected: false
+        },
+        {
+          id: 3,
+          title: '조선백자전',
+          museum: '리움 미술관',
+          price: 30000,
+          display: '전시 중',
+          isSelected: false
+        },
+        {
+          id: 4,
+          title: '한국 실험미술 1960 - 1970',
+          museum: '국립현대미술관',
+          price: 0,
+          display: '전시 중',
+          isSelected: false
+        },
+        {
+          id: 5,
+          title: '에드워드 호퍼 : 길 위에서',
+          museum: '서울 시립 미술관',
+          price: 1000,
+          display: '전시 종료',
+          isSelected: false
+        },
+        {
+          id: 6,
+          title: '알렉산더 칼더 x 이우환',
+          museum: '국제갤러리 서울점',
+          price: 15000,
+          display: '전시 종료',
+          isSelected: false
+        },
+      ]
+      const isActive = ref(false)
+
+      const toggleSelection = (exhibition) => {
+        exhibition.isSelected = !exhibition.isSelected;
+      }
+
+      const filteredExhibitions = computed(() => {
+        if (isActive.value) {
+          return exhibitions.filter(exhibition => exhibition.display === '전시 중');
+        } else {
+          return exhibitions;
+        }
+      })
+
+      return {
+        exhibitions,
+        isActive,
+        filteredExhibitions,
+        toggleSelection
+      }
+    }
+  })
+  app.mount('#app')
+</script>
+</body>
+</html>
