@@ -22,5 +22,10 @@
     <mapping directory="$PROJECT_DIR$/04_WEB/04_responsiveWeb/web_ws_4_a" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/04_WEB/04_responsiveWeb/web_ws_4_b" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/04_WEB/04_responsiveWeb/web_ws_4_c" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/06_DB/01-sql/hw2/db_ws_2_1" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/06_DB/01-sql/hw2/db_ws_2_2" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/06_DB/01-sql/hw2/db_ws_2_3" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/06_DB/01-sql/hw2/db_ws_2_4" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/06_DB/01-sql/hw2/db_ws_2_5" vcs="Git" />
   </component>
 </project>
